@@ -5,10 +5,17 @@ import App from './App.jsx'
 
 import { createBrowserRouter } from "react-router";
 import { RouterProvider } from "react-router/dom";
+import Root from './Components/Root/Root.jsx';
+import Home from './Components/Home/Home.jsx';
+import Mobile from './Components/Mobile/Mobile.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello World</div>,
+    Component:Root,
+    children:[
+      {index:true,Component:Home},
+      {path:'mobiles',Component:Mobile}
+    ]
   },
   {
     path:'about',
@@ -17,6 +24,10 @@ const router = createBrowserRouter([
   {
     path:'blogs',
     element:<div>All Blogs Here</div>
+  },{
+    path:'app',
+    Component:App,
+    // element:<App></App> element akare lhikle tag akare dite hobe. component akare dile just component r nam
   }
 ]);
 
