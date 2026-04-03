@@ -18,7 +18,17 @@ const router = createBrowserRouter([
     children:[
       {index:true,Component:Home},
       {path:'mobiles',Component:Mobile},
-      {path:'laptops',Component:Laptop}
+      {path:'laptops',Component:Laptop},
+      {
+    path:'posts',
+    loader:() => fetch("https://jsonplaceholder.typicode.com/posts"),
+    Component:Posts
+  },
+  {
+    path:'posts/:postId',
+    loader: ({params})=> fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`),
+    Component:PostDetails
+  }
     ]
   },
   {
@@ -34,14 +44,8 @@ const router = createBrowserRouter([
     // element:<App></App> element akare lhikle tag akare dite hobe. component akare dile just component r nam
   }, 
   {
-    path:'posts',
-    loader:() => fetch("https://jsonplaceholder.typicode.com/posts"),
-    Component:Posts
-  },
-  {
-    path:'posts/:postId',
-    loader: ({params})=> fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`),
-    Component:PostDetails
+    path:'*',
+    element:<h2>Not Found 404</h2>
   }
 ]);
 
