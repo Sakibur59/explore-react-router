@@ -5,7 +5,7 @@ const Post = ({post}) => {
     const {id,title,body}=post;
     const navigate = useNavigate()
     const handleNavigate = ()=> {
-        navigate('/')
+        navigate(`/posts/${id}`)
     }
     return (
         <div style={{border:"2px solid green"}}>
