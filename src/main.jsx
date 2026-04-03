@@ -9,6 +9,7 @@ import Root from './Components/Root/Root.jsx';
 import Home from './Components/Home/Home.jsx';
 import Mobile from './Components/Mobile/Mobile.jsx';
 import Laptop from './Components/Laptop/Laptop.jsx';
+import Posts from './Components/Posts/Posts.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
     path:'app',
     Component:App,
     // element:<App></App> element akare lhikle tag akare dite hobe. component akare dile just component r nam
+  }, 
+  {
+    path:'posts',
+    loader:() => fetch("https://jsonplaceholder.typicode.com/posts"),
+    Component:Posts
   }
 ]);
 
